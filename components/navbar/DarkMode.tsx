@@ -1,6 +1,7 @@
 'use client';
 import * as React from 'react';
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
+import { RxPerson } from 'react-icons/rx';
 import { useTheme } from 'next-themes';
 
 import { Button } from '@/components/ui/button';
@@ -24,13 +25,25 @@ export default function DarkMode() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end'>
-        <DropdownMenuItem onClick={() => setTheme('light')}>
+        <DropdownMenuItem
+          onClick={() => setTheme('light')}
+          className='flex gap-x-2 cursor-pointer'
+        >
+          <SunIcon />
           Light
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('dark')}>
+        <DropdownMenuItem
+          onClick={() => setTheme('dark')}
+          className='flex gap-x-2 cursor-pointer'
+        >
+          <MoonIcon />
           Dark
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('system')}>
+        <DropdownMenuItem
+          onClick={() => setTheme('system')}
+          className='flex gap-x-2 cursor-pointer'
+        >
+          <RxPerson />
           System
         </DropdownMenuItem>
       </DropdownMenuContent>
