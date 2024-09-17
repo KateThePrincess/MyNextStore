@@ -1,9 +1,16 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
+import { NextResponse } from 'next/server';
 
 //only registered users can get access to pages different than public
 const isPublicRoute = createRouteMatcher(['/', '/products(.*)']);
+const isAdminRoute = createRouteMatcher(['/admin/(.*)']);
+const adminId = process.env.ADMIN_ID;
 
 export default clerkMiddleware((auth, req) => {
+  const isAdminUser = adminId === auth().userId;
+  if (isAdminRoute(req) && !isAdminUser) {
+    return NextResponse.redirect(new URL('/', req.url));
+  }
   if (!isPublicRoute(req)) auth().protect();
 });
 
@@ -15,4 +22,3 @@ export const config = {
     '/(api|trpc)(.*)',
   ],
 };
-//love
