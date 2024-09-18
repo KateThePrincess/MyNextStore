@@ -9,10 +9,10 @@ import LinksDropdown from './LinksDropdown';
 export default function Navbar() {
   return (
     <nav className='border-b'>
-      <Container className='flex flex-col sm:flex-row sm:justify-between sm:items-center flex-wrap py-8'>
+      <Container className='flex justify-between gap-4 py-8 items-centxwer'>
         <Logo />
         <Suspense>
-          <NavSearch />
+          <NavSearch className='hidden sm:flex' />
         </Suspense>
         <div className='flex gap-4 items-center'>
           <CartButton />

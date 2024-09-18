@@ -8,11 +8,11 @@ export default function Logo() {
     <Button
       variant='link'
       asChild
-      className=' font-bold text-xl gap-1 decoration-transparent'
+      className='font-bold text-xl gap-1 decoration-transparent'
+      size='icon'
     >
       <Link href='/'>
         <PiOfficeChairFill className='text-4xl ' />
-        <span>/ comfy</span>
       </Link>
     </Button>
   );

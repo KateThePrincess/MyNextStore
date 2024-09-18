@@ -4,8 +4,9 @@ import { Button } from '@/components/ui/button';
 import { RxMagnifyingGlass } from 'react-icons/rx';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
+import { cn } from '@/lib/utils';
 
-export default function NavSearch() {
+export default function NavSearch({ className }: { className?: string }) {
   const searchParams = useSearchParams();
   const { replace } = useRouter();
   const [search, setSearch] = useState(
@@ -29,7 +30,7 @@ export default function NavSearch() {
   }, [searchParams.get('search')]);
 
   return (
-    <div className='flex w-full max-w-sm items-center space-x-2'>
+    <div className={cn(className, 'w-full max-w-sm items-center space-x-2')}>
       <Input
         type='search'
         placeholder='search product...'
@@ -43,7 +44,7 @@ export default function NavSearch() {
         type='submit'
         variant='outline'
         size='icon'
-        className='capitalize hidden sm:flex items-center '
+        className='capitalize flex items-center '
         onClick={handleSearch}
       >
         <RxMagnifyingGlass className='h-[1.2rem] w-[1.2rem]' />
