@@ -10,10 +10,10 @@ export default function FavoriteToggleButton({
 }) {
   return (
     <Button
-      size={`${text ? 'lg' : 'icon'}`}
+      size={text ? 'lg' : 'icon'}
       variant='outline'
       className={`cursor-pointer flex capitalize gap-x-2 w-full ${
-        text ? '' : 'p-2'
+        text ? '' : 'p-2.5 bg-card'
       }`}
     >
       <RxHeart />

@@ -8,5 +8,5 @@ export default function EmptyList({
   heading?: string;
   className?: string;
 }) {
-  return <h2 className={cn('text-xl', className)}>{heading}</h2>;
+  return <h2 className={cn('text-xl capitalize', className)}>{heading}</h2>;
 }
