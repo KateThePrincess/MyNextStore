@@ -5,6 +5,7 @@ import { formatCurrency } from '@/utils/format';
 import FavoriteToggleButton from '@/components/products/FavoriteToggleButton';
 import AddToCart from '@/components/single-product/AddToCart';
 import ProductRating from '@/components/single-product/ProductRating';
+import ShareButton from '@/components/single-product/ShareButton';
 
 export default async function SingleProductPage({
   params,
@@ -31,8 +32,15 @@ export default async function SingleProductPage({
         </div>
         {/* PRODUCT INFO SECOND COL */}
         <div>
-          <div className='flex gap-x-8 items-center'>
+          <div className='flex items-center justify-between'>
             <h1 className='capitalize text-3xl font-bold'>{name}</h1>
+            <div className='flex gap-x-2 items-center'>
+              <FavoriteToggleButton
+                productId={params.id}
+                text='add to favorites'
+              />
+              <ShareButton productId={params.id} name={product.name} />
+            </div>
           </div>
           <ProductRating productId={params.id} />
           <h4 className='text-xl mt-2'>{company}</h4>
@@ -41,10 +49,6 @@ export default async function SingleProductPage({
           </p>
           <p className='mt-6 leading-8 text-muted-foreground'>{description}</p>
           <div className='flex gap-x-4 mt-6 items-center justify-between'>
-            <FavoriteToggleButton
-              productId={params.id}
-              text='add to favorites'
-            />
             <AddToCart productId={params.id} />
           </div>
         </div>
