@@ -5,7 +5,14 @@ export interface ProductType {
   description: string;
   price: number;
 }
-
+export interface AdminProductType {
+  name: string;
+  image: string;
+  company: string;
+  description: string;
+  price: number;
+  featured: boolean;
+}
 export type actionFunction = (
   prevState: any,
   formData: FormData
