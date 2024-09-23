@@ -23,7 +23,7 @@ export default function ShareButton({
 }) {
   const url = process.env.NEXT_PUBLIC_WEBSITE_URL;
   const shareLink = `${url}/products/${productId}`;
-  //whats wrong
+  //whats is wrong
   return (
     <Popover>
       <PopoverTrigger asChild>
