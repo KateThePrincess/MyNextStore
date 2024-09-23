@@ -5,7 +5,7 @@ import { useFormStatus } from 'react-dom';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { SignInButton } from '@clerk/nextjs';
-import { FaRegHeart, FaHeart } from 'react-icons/fa';
+import { RxHeart, RxHeartFilled } from 'react-icons/rx';
 import { LuTrash2, LuPenSquare } from 'react-icons/lu';
 
 type btnSize = 'default' | 'lg' | 'sm';
@@ -59,6 +59,41 @@ export const IconButton = ({ actionType }: { actionType: actionType }) => {
   return (
     <Button type='submit' size='icon' variant='link' className='cursor-pointer'>
       {pending ? <ReloadIcon className='animate-spin' /> : renderIcon()}
+    </Button>
+  );
+};
+
+export const CardSignInButton = () => {
+  return (
+    <SignInButton mode='modal'>
+      <Button
+        type='button'
+        size='icon'
+        variant='outline'
+        className='p-2 cursor-pointer'
+        asChild
+      />
+      <RxHeart />
+    </SignInButton>
+  );
+};
+
+export const CardSubmitButton = ({ isFavorite }: { isFavorite: boolean }) => {
+  const { pending } = useFormStatus();
+  return (
+    <Button
+      type='submit'
+      size='icon'
+      variant='outline'
+      className='p-2 cursor-pointer'
+    >
+      {pending ? (
+        <ReloadIcon className='animate-spin' />
+      ) : isFavorite ? (
+        <RxHeartFilled />
+      ) : (
+        <RxHeart />
+      )}
     </Button>
   );
 };
