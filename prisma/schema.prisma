@@ -30,6 +30,7 @@ model Product {
   updatedAt    DateTime   @updatedAt
   clerkId  String
   favorites Favorite[]
+  reviews   Review[]
 }
 
 model Favorite {
@@ -39,4 +40,20 @@ model Favorite {
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
   clerkId      String
+}
+
+
+model Review {
+  id           String     @id @default(uuid())
+  clerId       String
+  rating       Int
+  comment      String
+  authorName   String
+  authorImageUrl String
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  product      Product    @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId    String
+
+
 }

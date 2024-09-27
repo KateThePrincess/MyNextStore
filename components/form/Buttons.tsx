@@ -72,8 +72,9 @@ export const CardSignInButton = () => {
         variant='outline'
         className='p-2 cursor-pointer'
         asChild
-      />
-      <RxHeart />
+      >
+        <RxHeart />
+      </Button>
     </SignInButton>
   );
 };
