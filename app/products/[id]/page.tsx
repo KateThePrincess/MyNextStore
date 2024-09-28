@@ -37,7 +37,7 @@ export default async function SingleProductPage({
         </div>
         {/* PRODUCT INFO SECOND COL */}
         <div>
-          <div className='flex items-center justify-between'>
+          <div className='flex items-start justify-between gap-x-4'>
             <h1 className='capitalize text-3xl font-bold'>{name}</h1>
             <div className='flex gap-x-2 items-center'>
               <FavoriteToggleButton

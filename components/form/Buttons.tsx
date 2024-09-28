@@ -7,17 +7,20 @@ import { cn } from '@/lib/utils';
 import { SignInButton } from '@clerk/nextjs';
 import { RxHeart, RxHeartFilled } from 'react-icons/rx';
 import { LuTrash2, LuPenSquare } from 'react-icons/lu';
+import { IconType } from 'react-icons/lib';
 
 type btnSize = 'default' | 'lg' | 'sm';
 type SubmitButtonProps = {
   className?: string;
   text?: string;
   size?: btnSize;
+  icon?: IconType;
 };
 export function SubmitButton({
   className = '',
   text = 'submit',
   size = 'lg',
+  icon: Icon,
 }: SubmitButtonProps) {
   const { pending } = useFormStatus();
   return (
@@ -26,6 +29,7 @@ export function SubmitButton({
       disabled={pending}
       className={cn('capitalize', className)}
       size={size}
+      variant='outline'
     >
       {pending ? (
         <>
@@ -33,7 +37,10 @@ export function SubmitButton({
           Please wait...
         </>
       ) : (
-        text
+        <>
+          {Icon && <Icon className='mr-2 h-4 w-4' />}
+          {text}
+        </>
       )}
     </Button>
   );
@@ -96,5 +103,20 @@ export const CardSubmitButton = ({ isFavorite }: { isFavorite: boolean }) => {
         <RxHeart />
       )}
     </Button>
+  );
+};
+
+export const ProductSignInButton = () => {
+  return (
+    <SignInButton mode='modal'>
+      <Button
+        type='button'
+        className='mt-8 capitalize w-full'
+        variant='outline'
+        size='lg'
+      >
+        sign in
+      </Button>
+    </SignInButton>
   );
 };

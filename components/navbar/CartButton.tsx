@@ -3,9 +3,10 @@ import { FaCartShopping } from 'react-icons/fa6';
 import { PiShoppingCartLight } from 'react-icons/pi';
 import { Button } from '../ui/button';
 import Link from 'next/link';
+import { fetchCartItems } from '@/utils/actions';
 
 export default async function CartButton() {
-  const numItemsInCart = 9;
+  const numItemsInCart = await fetchCartItems();
   return (
     <Button
       asChild
