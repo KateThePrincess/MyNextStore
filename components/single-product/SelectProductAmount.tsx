@@ -31,8 +31,8 @@ export default function SelectProductAmount(
   const { mode, amount, setAmount } = props;
   const cartItem = mode === Mode.CartItem;
   return (
-    <div className='grid grid-cols-2 items-center'>
-      <h4 className='mb-2 font-semibold'>Select the amount:</h4>
+    <div className='flex items-center justify-between w-full gap-5'>
+      <h4 className='mb-2'>Amount:</h4>
       <Select
         defaultValue={amount.toString()}
         onValueChange={(value) => setAmount(Number(value))}
