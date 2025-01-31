@@ -5,7 +5,7 @@ A fully functional e-commerce store built with **Next.js**, using **ShadCN UI** 
 ## 🌐 Production Build
 
 You can view the live production version of the store here:  
-[https://my-next-store-seven.vercel.app/](https://my-next-store-seven.vercel.app/))
+[Next Store](https://my-next-store-seven.vercel.app/)
 
 ## 🚀 Features
 
