@@ -59,6 +59,10 @@
   }
 }
 
+.App-Backround {
+  background: transparent !important;
+}
+
 @layer base {
   * {
     @apply border-border;

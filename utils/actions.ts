@@ -1,5 +1,5 @@
 'use server';
-import db from '@/utils/db';
+import db from '../utils/db';
 import { redirect } from 'next/navigation';
 import { AdminProductType, ProductType, CartItem } from './types';
 import { auth, currentUser } from '@clerk/nextjs/server';
@@ -14,13 +14,13 @@ import { revalidatePath } from 'next/cache';
 import { Cart } from '@prisma/client';
 import { error } from 'console';
 //USER AUTHORIZATION
-const getAuthUser = async () => {
+export const getAuthUser = async () => {
   const user = await currentUser();
   if (!user) redirect('/');
   return user;
 };
 //ADMIN AUTHORIZATION
-const getAdminUser = async () => {
+export const getAdminUser = async () => {
   const user = await getAuthUser();
   if (user.id !== process.env.ADMIN_ID) redirect('/');
   return user;
